@@ -1,0 +1,51 @@
+<div class="columns">
+  <div class="column">
+    <app-card
+      [name]="cardForm.value['name']"
+      [cardNumber]="cardForm.value['cardNumber']"
+      [expiration]="cardForm.value['expiration']"
+    ></app-card>
+  </div>
+  <div class="column">
+    <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+      <app-input
+        [control]="$any(cardForm).controls['name']"
+        label="Name"
+      ></app-input>
+      <app-input
+        [control]="$any(cardForm).controls['cardNumber']"
+        label="Card Number"
+      ></app-input>
+      <div class="columns">
+        <div class="column">
+          <app-input
+            [control]="$any(cardForm).controls['expiration']"
+            label="Expiration"
+          ></app-input>
+        </div>
+        <div class="column">
+          <app-input
+            [control]="$any(cardForm).controls['securityCode']"
+            label="Security Code"
+          ></app-input>
+        </div>
+      </div>
+      <div class="buttons">
+        <button
+          class="button is-primary"
+          type="submit"
+          [disabled]="cardForm.invalid"
+        >
+          Submit
+        </button>
+        <button
+          class="button is-warning"
+          type="button"
+          (click)="onResetClick()"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

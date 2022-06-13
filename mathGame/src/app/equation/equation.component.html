@@ -1,0 +1,7 @@
+<form class="subtitle" [formGroup]="mathForm" action="">
+  {{ a }} + {{ b }} = <input appAnswerHighlight formControlName="answer" />
+</form>
+
+<div class="subtitle" style="margin:2%;">Seconds Per Solution: {{ secondsPerSolution | number: "1.1-3" }}</div>
+
+
